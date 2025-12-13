@@ -182,12 +182,12 @@ function scoreCategory(cell) {
     if (playerIndex !== currentPlayer) return showAlertModal("It's not your turn!");
     if (players[playerIndex].scores[cat] !== null) return showAlertModal("You already scored this category.");
 
-    // Prevent doubleGenerala before first generala
-    if(cat === "doubleGenerala" && players[playerIndex].scores["generala"] === null){
+    const score = calculateScore(cat);
+
+    // Allow 0 for doubleGenerala even if first generala not scored
+    if(cat === "doubleGenerala" && players[playerIndex].scores["generala"] === null && score > 0){
         return showAlertModal("You can only score Double Generala after scoring Generala first.");
     }
-
-    const score = calculateScore(cat);
 
     showConfirmModal(`Are you sure you want to score ${score} for ${formatCat(cat)}?`, () => {
         setScore(cell, score);
