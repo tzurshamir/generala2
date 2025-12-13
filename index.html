@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generala</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- =============== SETUP SCREEN =============== -->
+<div id="setup-screen" class="screen active">
+    <h1>Generala</h1>
+
+    <label>Number of Players:</label>
+    <select id="player-count">
+        <option value="2">2 Players</option>
+        <option value="3">3 Players</option>
+        <option value="4">4 Players</option>
+        <option value="5">5 Players</option>
+        <option value="6">6 Players</option>
+    </select>
+
+    <div id="player-names"></div>
+
+    <button id="start-game-btn">Start Game</button>
+</div>
+
+<!-- =============== GAME SCREEN =============== -->
+<div id="game-screen" class="screen">
+    <div id="turn-banner"></div>
+
+    <div id="dice-area">
+        <div class="die" data-index="0"></div>
+        <div class="die" data-index="1"></div>
+        <div class="die" data-index="2"></div>
+        <div class="die" data-index="3"></div>
+        <div class="die" data-index="4"></div>
+    </div>
+
+    <div id="controls">
+        <button id="roll-btn">Roll Dice</button>
+        <p>Rolls left: <span id="rolls-left">3</span></p>
+    </div>
+
+    <table id="score-table">
+        <thead id="score-header"></thead>
+        <tbody id="score-body"></tbody>
+    </table>
+</div>
+
+<!-- =============== END SCREEN =============== -->
+<div id="end-screen" class="screen">
+    <h1>Game Over</h1>
+    <div id="leaderboard"></div>
+    <button onclick="location.reload()">Play Again</button>
+</div>
+
+<!-- =============== CUSTOM MODAL =============== -->
+<div id="custom-modal" class="modal">
+    <div class="modal-content">
+        <p id="modal-text"></p>
+        <div class="modal-buttons">
+            <button id="confirm-yes">Yes</button>
+            <button id="confirm-no">No</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

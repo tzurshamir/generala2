@@ -1,0 +1,264 @@
+/* ========================== GENERAL STYLES ========================== */
+body {
+    margin: 0;
+    background: #222;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* ========================== SCREENS ========================== */
+.screen {
+    display: none;
+    padding: 20px;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* ========================== HEADINGS ========================== */
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease;
+}
+
+/* ========================== SETUP SCREEN ========================== */
+#setup-screen select,
+#setup-screen input {
+    padding: 8px;
+    font-size: 18px;
+    margin: 10px;
+}
+
+#setup-screen button {
+    padding: 12px 25px;
+    font-size: 20px;
+    background: #03a9f4;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border-radius: 8px;
+}
+
+#setup-screen button:hover {
+    transform: scale(1.05);
+}
+
+/* ========================== TURN BANNER ========================== */
+#turn-banner {
+    padding: 20px 30px;
+    font-size: 36px;
+    font-weight: 900;
+    background: #444;
+    margin: 60px auto 30px auto;
+    border-radius: 12px;
+    width: fit-content;
+    animation: fadeTurn 0.7s ease;
+}
+
+/* ========================== DICE AREA ========================== */
+#dice-area {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 15px;
+}
+
+.die {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(145deg, #ffffff, #c8c8c8);
+    border-radius: 12px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    box-shadow: 5px 5px 10px #111, -5px -5px 10px #333;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 8px;
+    box-sizing: border-box;
+    transition: transform 0.3s, background 0.3s, border-color 0.3s;
+}
+
+.die.held {
+    border-color: #00e676;
+    background: linear-gradient(145deg, #c8ffd7, #8efaae);
+}
+
+/* ========================== DICE DOTS ========================== */
+.die .dot {
+    width: 12px;
+    height: 12px;
+    background: black;
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;
+    opacity: 1;
+}
+
+.die .dot.hidden {
+    opacity: 0;
+}
+
+/* ========================== DICE ROLL ANIMATION ========================== */
+.die.roll-animate {
+    animation: rollDice 0.6s ease;
+}
+
+/* ========================== CONTROLS ========================== */
+#roll-btn,
+button {
+    padding: 12px 30px;
+    font-size: 20px;
+    background: #03a9f4;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border-radius: 8px;
+}
+
+#roll-btn:hover,
+button:hover {
+    transform: scale(1.05);
+}
+
+/* ========================== SCORE TABLE ========================== */
+#score-table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#score-table th,
+#score-table td {
+    border: 1px solid #555;
+    padding: 10px;
+}
+
+#score-table td.clickable {
+    background: #333;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+#score-table td.clickable:hover {
+    background: #555;
+    transform: scale(1.05);
+}
+
+#score-table td.filled {
+    background: #1b1b1b;
+}
+
+/* ========================== POSSIBLE SCORES ROW ========================== */
+#possible-scores-row {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    font-style: italic;
+}
+
+td.possible-score {
+    color: #ffd740;
+    white-space: normal;
+    font-size: 13px;
+}
+
+/* ========================== END SCREEN / LEADERBOARD ========================== */
+#leaderboard {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#leaderboard th,
+#leaderboard td {
+    border: 1px solid #555;
+    padding: 12px;
+    font-size: 18px;
+}
+
+#leaderboard th {
+    background: #03a9f4;
+    color: #fff;
+}
+
+#leaderboard td {
+    background: #333;
+}
+
+#leaderboard td.rank {
+    width: 60px;
+}
+
+/* ========================== CUSTOM MODALS ========================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background: #222;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    border: 2px solid #03a9f4;
+}
+
+.modal-content button {
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: #03a9f4;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+}
+
+.modal-content button:hover {
+    transform: scale(1.05);
+}
+
+/* ========================== ANIMATIONS ========================== */
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+@keyframes rollDice {
+    0% { transform: rotate(0deg) scale(1);}
+    25% { transform: rotate(90deg) scale(1.2);}
+    50% { transform: rotate(180deg) scale(1);}
+    75% { transform: rotate(270deg) scale(1.2);}
+    100% { transform: rotate(360deg) scale(1);}
+}
+
+@keyframes fadeTurn {
+    0% { transform: scale(0.8); opacity: 0;}
+    50% { transform: scale(1.2); opacity: 1;}
+    100% { transform: scale(1); opacity: 1;}
+}
+
+@keyframes winnerFade {
+    0% { transform: scale(0.5); opacity: 0;}
+    100% { transform: scale(1); opacity: 1;}
+}
