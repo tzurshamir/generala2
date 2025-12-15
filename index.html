@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Generala</title>
     <link rel="stylesheet" href="style.css" />
-
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 </head>
 <body>
 
+<!-- =============== SETUP SCREEN =============== -->
 <div id="setup-screen" class="screen active">
-    <h1>Generala Online</h1>
+    <h1>Generala</h1>
 
     <label>Number of Players:</label>
     <select id="player-count">
@@ -26,13 +24,9 @@
     <div id="player-names"></div>
 
     <button id="start-game-btn">Start Game</button>
-    
-    <p style="margin-top: 20px; color: #aaa; font-size: 14px; font-weight: bold;">
-        All friends must select the SAME Player Count and enter the SAME Player Names to join.
-    </p>
-    <div id="waiting-status" style="margin-top: 20px; font-size: 20px; color: #00e676;"></div>
 </div>
 
+<!-- =============== GAME SCREEN =============== -->
 <div id="game-screen" class="screen">
     <div id="turn-banner"></div>
 
@@ -55,12 +49,14 @@
     </table>
 </div>
 
+<!-- =============== END SCREEN =============== -->
 <div id="end-screen" class="screen">
     <h1>Game Over</h1>
     <div id="leaderboard"></div>
     <button onclick="location.reload()">Play Again</button>
 </div>
 
+<!-- =============== CUSTOM MODAL =============== -->
 <div id="custom-modal" class="modal">
     <div class="modal-content">
         <p id="modal-text"></p>
